@@ -16,7 +16,6 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localeES,'es');
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 const routes: Routes = [
