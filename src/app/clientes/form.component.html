@@ -25,16 +25,18 @@
       </div>
 
       <div class="form-group row">
-        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" #apellido="ngModel"> <!-- required -->
-          <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-            <div *ngIf="apellido.errors.required">
-              Apellido es requerido
-            </div>
-          </div>
-        </div>
-      </div>
+       <label for="nit" class="col-form-label col-sm-2">Nit</label>
+       <div class="col-sm-6">
+         <input type="text" class="form-control" [(ngModel)]="cliente.nit" name="nit" #nit="ngModel"> <!-- required -->
+         <div class="alert alert-danger" *ngIf="nit.invalid && (nit.dirty || nit.touched)">
+           <div *ngIf="nit.errors.required">
+          Nit es requerido
+           </div>
+         </div>
+       </div>
+     </div>
+
+
 
       <div class="form-group row">
         <label for="email" class="col-form-label col-sm-2">Email</label>

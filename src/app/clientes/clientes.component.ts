@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{Cliente} from './cliente';
 import {ClienteService} from './cliente.service';
+import{ModalService} from './detalle/modal.service';
  import swal from 'sweetalert2';
 import { tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -14,11 +15,13 @@ export class ClientesComponent implements OnInit {
 
   clientes: Cliente[];
   paginador:any;
+  clienteSeleccionado:Cliente;
 
 
 
   constructor(private clienteService: ClienteService,
-    private activatedRoute: ActivatedRoute  ) {}
+    private activatedRoute: ActivatedRoute,
+  private modalService: ModalService ) {}
 
   ngOnInit() {
 
@@ -63,11 +66,11 @@ delete(cliente: Cliente): void {
 
   swalWithBootstrapButtons.fire({
     title: 'Está seguro?',
-     text: `¿Seguro que desea eliminar al cliente ${cliente.nombre} ${cliente.apellido}?`,
+     text: `¿Seguro que desea eliminar al cliente ${cliente.nombre}?`,
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Si, Proceder!',
-    cancelButtonText: 'No, Volver!',
+    confirmButtonText: 'Si',
+    cancelButtonText: 'No',
     reverseButtons: true
         }).then((result) => {
       if (result.value) {
@@ -88,4 +91,11 @@ delete(cliente: Cliente): void {
 
 //FUNCION BOTON SWINwGALERT PARA CONFIRMAR
 }
+
+abrirModal(cliente:Cliente){
+
+  this.clienteSeleccionado=cliente;
+  this.modalService.abrirModal();
+}
+
 }
